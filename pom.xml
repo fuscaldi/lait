@@ -84,9 +84,9 @@
      </modules>
 	
 <scm>
-<connection>scm:git:git@github.com:fuscaldi/lait.git</connection>
-<url>scm:git:git@github.com:fuscaldi/lait.git</url>
-<developerConnection>scm:git:git@github.com:fuscaldi/lait.git</developerConnection>
+<connection>scm:git:https://github.com/fuscaldi/lait</connection>
+<url>scm:git:https://github.com/fuscaldi/lait</url>
+<developerConnection>scm:git:https://github.com/fuscaldi/lait</developerConnection>
 <tag>HEAD</tag>
 </scm>
     
