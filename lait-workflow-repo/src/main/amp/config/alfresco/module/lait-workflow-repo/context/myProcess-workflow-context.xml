@@ -6,12 +6,12 @@
     <bean id="myProcess.workflowBootstrap" parent="workflowDeployer">
 		<property name="models">
 			<list>
-        <value>alfresco/module/lait-workflow/model/myProcessWorkflowModel.xml</value>
+        <value>alfresco/module/lait-workflow-repo/model/myProcessWorkflowModel.xml</value>
 			</list>
 		</property>
 		<property name="labels">
 			<list>
-        <value>alfresco/module/lait-workflow/messages/myProcess-messages</value>
+        <value>alfresco/module/lait-workflow-repo/messages/myProcess-messages</value>
 			</list>
 		</property>
 		
