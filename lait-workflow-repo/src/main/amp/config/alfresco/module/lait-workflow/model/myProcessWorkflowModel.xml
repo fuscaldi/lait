@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<model name="mdb:workflowmodel" xmlns="http://www.alfresco.org/model/dictionary/1.0">
+
+  <description>My Process workflow model</description>
+
+   <imports>
+      <import uri="http://www.alfresco.org/model/dictionary/1.0" prefix="d"/>
+      <import uri="http://www.alfresco.org/model/bpm/1.0" prefix="bpm"/>
+      <import uri="http://www.alfresco.org/model/workflow/1.0" prefix="wf"/>
+   </imports>
+
+   <namespaces>
+      <namespace uri="my.alfresco.workflow.model" prefix="mdb"/>
+   </namespaces>
+
+   <types>
+   
+      <type name="mdb:approvazioneTask">
+          <parent>bpm:activitiOutcomeTask</parent>
+            <properties>
+                <property name="mdb:reviewOutcome">
+                    <type>d:text</type>
+                    <default>Rifiuta</default>
+                    <constraints>
+                        <constraint name="mdb:reviewOutcomeOptions" type="LIST">
+                            <parameter name="allowedValues">
+                                <list>
+                                    <value>Approva</value>
+                                    <value>Rifiuta</value>
+                                </list>
+                            </parameter>
+                        </constraint>
+                    </constraints>
+                </property>
+            </properties>
+            <overrides>
+                <property name="bpm:packageItemActionGroup">
+                    <default>edit_package_item_actions</default>
+                </property>
+                <property name="bpm:outcomePropertyName">
+                    <default>{http://www.alfresco.org/model/workflow/1.0}reviewOutcome</default>
+                </property>
+            </overrides>      
+            <mandatory-aspects>
+              <aspect>mdb:datiFattura</aspect>
+            </mandatory-aspects>
+      </type>
+   
+      <type name="mdb:revisioneTask">
+         <parent>bpm:workflowTask</parent>
+         <overrides>
+            <property name="bpm:packageItemActionGroup">
+               <default>edit_and_remove_package_item_actions</default>
+            </property>
+         </overrides>
+         <mandatory-aspects>
+            <aspect>mdb:datiFattura</aspect>
+         </mandatory-aspects>
+      </type>
+
+      <type name="mdb:notificaTask">
+         <parent>bpm:workflowTask</parent>
+         <overrides>
+            <property name="bpm:packageItemActionGroup">
+               <default>read_package_item_actions</default>
+            </property>
+         </overrides>         
+         <mandatory-aspects>
+            <aspect>mdb:datiFattura</aspect>
+         </mandatory-aspects>
+      </type>
+      
+   </types>
+   
+   <aspects>
+      <aspect name="mdb:datiFattura">
+        <properties>
+           <property name="mdb:importoFattura">
+              <title>Importo Fattura</title>
+              <type>d:float</type>
+           </property>
+         </properties>   
+      </aspect>
+   </aspects>
+   
+</model>

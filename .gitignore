@@ -1,0 +1,6 @@
+target
+.classpath
+*.log
+.project
+.settings
+alf_data_dev
